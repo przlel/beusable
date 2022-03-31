@@ -8,8 +8,6 @@ import pl.beusable.room.Room;
 @Builder
 public class ReservationDto {
   private final ClientDto client;
-  //FIXME
-  private final int price;
-  private boolean roomUpgradeAvailable;
+  private final Integer price;
   private final Room assignedRoom;
 }
