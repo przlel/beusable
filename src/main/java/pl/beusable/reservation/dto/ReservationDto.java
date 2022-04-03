@@ -1,13 +1,17 @@
 package pl.beusable.reservation.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import pl.beusable.room.Room;
+import pl.beusable.room.RoomDto;
+
+import java.math.BigDecimal;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class ReservationDto {
   private final ClientDto client;
-  private final Integer price;
-  private final Room assignedRoom;
+  private final BigDecimal price;
+  private final RoomDto assignedRoom;
 }

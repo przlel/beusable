@@ -5,6 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class Room {
-  final RoomType roomType;
+public class RoomDto {
+  private RoomType roomType;
+  private boolean roomAvailable;
 }

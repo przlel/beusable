@@ -11,7 +11,7 @@ import java.util.Set;
 public class ReservationRepository {
   private final Set<ReservationDto> reservationStorage = new HashSet<>();
 
-  public void save(ReservationDto reservation) {
+  public void save(final ReservationDto reservation) {
     reservationStorage.add(reservation);
   }
 
