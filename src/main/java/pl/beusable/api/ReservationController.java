@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.beusable.api.error.ApiException;
 import pl.beusable.reservation.ReservationService;
 import pl.beusable.reservation.dto.ReservationDto;
 import pl.beusable.reservation.dto.ReservationsSummaryDto;
@@ -39,6 +40,6 @@ public class ReservationController {
     if (!batchData.isEmpty()) {
       return reservationService.createReservations(batchData);
     }
-    throw new RuntimeException();
+    throw ApiException.builder().error("Empty input data").build();
   }
 }

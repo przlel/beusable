@@ -8,6 +8,7 @@ import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import pl.beusable.api.error.ApiException;
 import pl.beusable.reservation.dto.ClientDto;
 import pl.beusable.reservation.dto.ReservationDto;
 import pl.beusable.reservation.dto.ReservationsSummaryDto;
@@ -48,7 +49,7 @@ public class ReservationService {
     if (selectedRoom.isPresent()) {
       return prepareReservation(clientName, price, selectedRoom.get());
     }
-    throw new RuntimeException();
+    throw ApiException.builder().error("No room available").build();
   }
 
   public ReservationsSummaryDto createReservations(final List<String> batchReservationsData) {
